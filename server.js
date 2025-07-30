@@ -15,6 +15,6 @@ app.use(cookieParser())
 app.use(rout)
 
 
-app.listen(PORT, () => {
+app.listen(PORT ||5000, () => {
     console.log(`Server Running At ${PORT} PORT`);
 })
