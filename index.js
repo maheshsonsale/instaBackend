@@ -10,16 +10,13 @@ const PORT = process.env.PORT
 const app = express()
 
 app.use(cors({
-    origin: 'https://insta-frontend-kohl.vercel.app',
+    origin: '',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }))
 app.use(express.json())
 app.use(cookieParser())
 
-app.get('/', (req, res) => {
-    res.send("api running")
-})
 app.use(rout)
 
 app.options('*', cors())
