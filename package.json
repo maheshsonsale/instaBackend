@@ -2,11 +2,11 @@
   "name": "instabackend",
   "version": "1.0.0",
   "description": "my instagram logindata",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node index.js"
   },
   "author": "Mahesh sonsale",
   "license": "ISC",
