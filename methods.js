@@ -35,8 +35,8 @@ export const login = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
         res.cookie('token', token, {
             httpOnly: true,
-            sameSite: "Lax",
-            secure: false,
+            sameSite: "None",
+            secure: true,
         });
         res.status(200).send({ message: "Login successful", isLogin: true });
     } catch (error) {
@@ -59,8 +59,8 @@ export const registration = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY);
         res.cookie('token', token, {
             httpOnly: true,
-            sameSite: "lax",
-            secure: false,
+            sameSite: "None",
+            secure: true,
         });
         return res.status(201).json({ success: true })
 
@@ -88,7 +88,7 @@ export const createpost = async (req, res) => {
 export const logout = (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
-        secure: true, // only if using HTTPS
+        secure: false, // only if using HTTPS
         sameSite: "None" // important for cross-origin requests (like frontend localhost:5173, backend:5000)
     });
     // console.log("User logged out");
@@ -291,7 +291,7 @@ export const deleteProfile = async (req, res) => {
         await user.deleteOne()
         res.clearCookie("token", {
             httpOnly: true,
-            secure: true,
+            secure: false,
             sameSite: "None",
         })
         await PostModel.deleteMany({ _id: { $in: user.postids } })
