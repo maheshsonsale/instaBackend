@@ -12,7 +12,7 @@ app.get('/',(req,res)=>{
     res.send("api running")
 })
 
-app.use(cors({origin:'http://localhost:5173',credentials:true}))
+app.use(cors({origin:'https://insta-frontend-kohl.vercel.app/',credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(rout)
